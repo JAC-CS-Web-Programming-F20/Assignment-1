@@ -1,0 +1,16 @@
+{
+	"require": {
+		"phpunit/phpunit": "^9.3",
+		"fzaninotto/faker": "^1.9"
+	},
+	"autoload": {
+		"psr-4": {
+			"Assignment1\\": "app/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Assignment1\\tests\\": "tests/"
+		}
+	}
+}
