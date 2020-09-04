@@ -6,11 +6,47 @@
 
 ## 📥 Submission
 
-TBA
+Since we'll be using Git and GitHub classroom for this assignment, all you need to do to submit is to commit and push your code to the repository. Over the course of working on the assignment, you should be committing and pushing as you go. I will simply take the last commit that was made before the assignment deadline and grade that one.
 
-## 🧪 Testing
+You'll already know what your grade is before submitting since the grade for this assignment will come purely from your test results. If you pass all the tests, you get 💯!
 
-TBA
+Easy. 🍋
+
+## 🔨 Setup
+
+1. Using a VSCode window that's not in a container, update your `Development-Environment/php/Dockerfile`:
+
+   ```dockerfile
+   ARG PHP_VERSION=""
+   FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
+
+   RUN apk update; \
+       apk upgrade;
+
+   RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS \
+       && pecl install xdebug \
+       && docker-php-ext-enable xdebug \
+       && apk del .phpize-deps \
+       && apk add --no-cache git
+
+   RUN docker-php-ext-install mysqli
+
+   RUN echo 'alias phpunit="vendor/bin/phpunit"' >> ~/.bashrc
+
+   COPY ./xdebug.ini $PHP_INI_DIR/conf.d
+
+   COPY --from=composer /usr/bin/composer /usr/bin/composer
+   ```
+
+   - After you save this file, stop all containers from the Docker VSCode (again, make sure you're not using VSCode inside a container right now) tab and run `docker-compose up --build` from a terminal inside `Development-Environment/`.
+
+2. Click `Code -> 📋` to copy the URL to the repository.
+
+   ![Clone Repo](docs/Clone-Repo.png)
+
+3. Create a new directory `mkdir Development-Environment/public_html/Assignments/` and go inside `cd Development-Environment/public_html/Assignments/`.
+4. Clone the Git repo `git clone <paste URL from GitHub>` (without the angle brackets). You should now have a folder inside `Assignments/` called `web-programming-f20-assignment-1-username/`.
+   1.
 
 ## 🎯 Objectives
 
@@ -25,7 +61,7 @@ Never been on Reddit? [Watch this video](https://www.youtube.com/watch?v=tlI022a
 
 ## 📈 ERD
 
-![ERD](ERD.png)
+![ERD](docs/ERD.png)
 
 ### 👤 User
 
