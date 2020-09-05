@@ -1,8 +1,8 @@
 # Assignment 1 - Models 💾
 
-- 💯**Worth**: 7.5%
-- 📅**Due**: September 20, 2020 @ 23:59
-- 🙅🏽‍**Penalty**: Late submissions lose 10% per day to a maximum of 3 days. Nothing is accepted after 3 days and a grade of 0% will be given.
+- 💯 **Worth**: 7.5%
+- 📅 **Due**: September 20, 2020 @ 23:59
+- 🙅🏽‍ **Penalty**: Late submissions lose 10% per day to a maximum of 3 days. Nothing is accepted after 3 days and a grade of 0% will be given.
 
 ## 📥 Submission
 
